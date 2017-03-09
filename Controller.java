@@ -1,11 +1,11 @@
-package main;
+package gui_discord;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import main.config.Configuration;
+import gui_discord.config.Configuration;
 import net.dv8tion.jda.core.entities.Guild;
 
 import java.util.HashMap;
@@ -27,7 +27,6 @@ public class Controller{
     @FXML
     TextField nameTextBox;
 
-
     public HashMap<Guild, TextFlow> guildToTextFlow = new HashMap<>();
 
     public boolean setupConfig(){
@@ -43,14 +42,14 @@ public class Controller{
 
     public void LOG(Guild guild, Text text){
         Platform.runLater(()->{
-            text.setText("\n"+text.getText());
-            //consoleFlow.getChildren().add(text);
-            guildToTextFlow.get(guild).getChildren().add(text);
+            System.out.println(guildToTextFlow.get(guild).getChildren());
+            if(guildToTextFlow.get(guild).getChildren().size()!=0)text.setText(text.getText()+"\n");
+            guildToTextFlow.get(guild).getChildren().add(0,text);
         });
     }
 
     public void clear(){
-        Platform.runLater(()->consoleFlow.getChildren().clear());
+        Platform.runLater(()->((TextFlow)((ScrollPane)consoleTabs.getSelectionModel().getSelectedItem().getContent()).getChildrenUnmodifiable().get(0)).getChildren().clear());
     }
 
     public void addAllTabs(){

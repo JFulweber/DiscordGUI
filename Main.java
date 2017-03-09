@@ -1,12 +1,12 @@
-package main;
+package gui_discord;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.bot.MyEventListener;
-import main.config.Configuration;
+import gui_discord.bot.MyEventListener;
+import gui_discord.config.Configuration;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;

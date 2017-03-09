@@ -1,7 +1,7 @@
-package main.bot;
+package gui_discord.bot;
 
-import main.Main;
-import main.UIControl.ConsoleControl;
+import gui_discord.Main;
+import gui_discord.UIControl.ConsoleControl;
 import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
