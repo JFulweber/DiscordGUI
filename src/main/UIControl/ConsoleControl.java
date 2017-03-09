@@ -1,8 +1,8 @@
-package gui_discord.UIControl;
+package main.UIControl;
 
 import javafx.scene.text.Text;
-import gui_discord.Controller;
-import gui_discord.Main;
+import main.Controller;
+import main.Main;
 import net.dv8tion.jda.core.entities.Guild;
 
 /**

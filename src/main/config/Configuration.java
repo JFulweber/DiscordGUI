@@ -1,4 +1,6 @@
-package gui_discord.config;
+package main.config;
+
+import main.Main;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +24,7 @@ public class Configuration {
     static Properties prop = new Properties();
     static OutputStream outputStream = null;
 
-    static ArrayList<String> properties = new ArrayList<>();
+    public static ArrayList<String> properties = new ArrayList<>();
 
     public static boolean setup(){
         properties.add("token");
