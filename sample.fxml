@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+   <center>
+      <TabPane prefHeight="429.0" prefWidth="658.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Console">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="371.0" prefWidth="600.0">
+                           <right>
+                              <VBox alignment="TOP_CENTER" prefHeight="371.0" prefWidth="108.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" text="Clear Console" />
+                                 </children>
+                              </VBox>
+                           </right>
+                           <center>
+                              <TabPane fx:id="consoleTabs" BorderPane.alignment="CENTER">
+                                 <tabs>
+                                    <Tab fx:id="baseConsoleTab" closable="false" text="Console">
+                                       <content>
+                                          <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                             <content>
+                                                <TextFlow fx:id="consoleFlow" />
+                                             </content>
+                                          </ScrollPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Configuration">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <Label text="Token" />
+                              <TextField fx:id="tokenTextBox" promptText="Token here; no quotes" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="96.0" spacing="10.0">
+                           <children>
+                              <Label text="Bot Name" />
+                              <TextField fx:id="nameTextBox" promptText="Bot Name" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
