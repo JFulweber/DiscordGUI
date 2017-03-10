@@ -7,6 +7,7 @@ import main.config.Configuration;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.ReadyEvent;
+import net.dv8tion.jda.core.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
 
@@ -18,18 +19,18 @@ public class MyEventListener implements EventListener {
     public void onEvent(Event event) {
         if(event instanceof GuildMessageReceivedEvent){
             String log = "";
-            log = ((GuildMessageReceivedEvent) event).getAuthor().getName() +":"+((GuildMessageReceivedEvent) event).getMessage().getContent();
+            log = ((GuildMessageReceivedEvent) event).getAuthor().getName() +": "+((GuildMessageReceivedEvent) event).getMessage().getContent();
             ConsoleControl.addLog(((GuildMessageReceivedEvent) event).getGuild(),log);
         }
         if(event instanceof ReadyEvent){
-            System.out.println("Ready!");
-            System.out.println(Main.jda.getGuilds());
             Main.controller.addAllTabs();
-            Main.controller.setupConifgParts();
             for(Guild guild:Main.jda.getGuilds()){
                 guild.getController().setNickname(Random.botMember(guild),Configuration.getProp("botName")).queue();
             }
             // add localized guild bot name change
+        }
+        if(event instanceof GuildJoinEvent){
+            Main.controller.addNewTab(((GuildJoinEvent) event).getGuild());
         }
     }
 }
