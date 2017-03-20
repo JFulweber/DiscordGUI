@@ -23,18 +23,17 @@ public class Configuration {
 
     public static boolean setup(){
 
-        propertyHash.put("token","set token");
-        propertyHash.put("prefix","-");
-        propertyHash.put("customRolePrefix","-");
-        propertyHash.put("generatedChannelPrefix","A:");
-        propertyHash.put("jailRoleName","gay jail");
-        propertyHash.put("botName","Lemon Stealing Whore");
+        propertyHash.put("Prefix","-");
+        propertyHash.put("Custom Role Prefix","-");
+        propertyHash.put("Generated Channel Prefix","A:");
+        propertyHash.put("Jail Role Name","gay jail");
+        propertyHash.put("Bot Name","Lemon Stealing Whore");
+        propertyHash.put("Bot Token","set token");
 
         if(!new File("config.properties").exists()){
             try{
                 for(String key: propertyHash.keySet()){
                     propertiesObj.setProperty(key,propertyHash.get(key));
-                    System.out.println("Setting key \""+key+"\" to "+propertyHash.get(key));
                 }
                 save();
                 return false;
@@ -45,8 +44,8 @@ public class Configuration {
         else {
             try {
                 propertiesObj.load(new FileInputStream("config.properties"));
-                String token = propertiesObj.getProperty("token");
-                if (!(token.equals("set token") || token.length() == 0)) return true;
+                String token = propertiesObj.getProperty("Bot Token");
+                return !token.equals(propertyHash.get("Bot Token"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
