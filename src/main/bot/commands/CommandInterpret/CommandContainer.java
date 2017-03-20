@@ -1,5 +1,6 @@
-package main.bot.CommandInterpret;
+package main.bot.commands.CommandInterpret;
 
+import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.Event;
 
 import java.util.ArrayList;
@@ -8,13 +9,13 @@ import java.util.ArrayList;
  * Created by Adair on 03/16/17.
  */
 public class CommandContainer{
-    private String raw;
-    private String invoke;
-    private ArrayList<String> argsList;
-    private String args;
-    private Event event;
+    public Message raw;
+    public String invoke;
+    public ArrayList<String> argsList;
+    public String args;
+    public Event event;
 
-    public CommandContainer(String raw, String invoke, ArrayList<String> argsList, String args, Event event) {
+    public CommandContainer(Message raw, String invoke, ArrayList<String> argsList, String args, Event event) {
         this.raw = raw;
         this.invoke = invoke;
         this.argsList = argsList;

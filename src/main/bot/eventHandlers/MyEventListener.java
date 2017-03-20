@@ -1,12 +1,14 @@
-package main.bot;
+package main.bot.eventHandlers;
 
 import javafx.scene.paint.Color;
 import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import main.Main;
 import main.Random;
 import main.UIControl.ConsoleControl;
+import main.bot.JDAController;
 import main.bot.commands.CommandInterpret.CommandHandler;
 import main.bot.commands.CommandInterpret.CommandParser;
+import main.bot.user_info.UserInfo;
 import main.config.Configuration;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.events.Event;
@@ -27,7 +29,17 @@ public class MyEventListener implements EventListener {
     public void onEvent(Event event) {
         if(event instanceof GuildMessageReceivedEvent){
 
-            String log = ((GuildMessageReceivedEvent) event).getMember().getNickname() +": "+((GuildMessageReceivedEvent) event).getMessage().getContent();
+            if(((GuildMessageReceivedEvent) event).getMessage().getContent().contains("uhhh")){
+                UserInfo.loadSpecific(((GuildMessageReceivedEvent) event).getMember().getUser());
+            }
+
+            String log = null;
+            if(((GuildMessageReceivedEvent) event).getMember().getNickname()==null){
+                log = ((GuildMessageReceivedEvent) event).getMember().getEffectiveName()+": "+((GuildMessageReceivedEvent) event).getMessage().getContent();
+            }
+            else{
+                log = ((GuildMessageReceivedEvent) event).getMember().getNickname() +": "+((GuildMessageReceivedEvent) event).getMessage().getContent();
+            }
             Color color = null;
             if(isCommand(((GuildMessageReceivedEvent) event).getMessage().getContent())){
                 color = Color.LIGHTSKYBLUE;
