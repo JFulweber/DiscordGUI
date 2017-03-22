@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/JDA-3.0.BETA2_146-withDependencies.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/json-simple-1.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/JDA-3.0.BETA2_144-withDependencies.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -6,8 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.bot.JDAController;
+import main.config.Configuration;
 import main.controllers.MainController;
 import net.dv8tion.jda.core.JDA;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main extends Application {
     public static JDA jda;
@@ -18,7 +23,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/mainScene.fxml"));
         AnchorPane root = loader.load();
         mainController = (MainController) loader.getController();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle(Configuration.getProp("Bot Name"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         JDAController.startJDA();

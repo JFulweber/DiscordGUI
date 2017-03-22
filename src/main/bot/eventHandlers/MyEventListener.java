@@ -30,7 +30,7 @@ public class MyEventListener implements EventListener {
         if(event instanceof GuildMessageReceivedEvent){
 
             if(((GuildMessageReceivedEvent) event).getMessage().getContent().contains("uhhh")){
-                UserInfo.loadSpecific(((GuildMessageReceivedEvent) event).getMember().getUser());
+                UserInfo.loadSpecific(((GuildMessageReceivedEvent) event).getMember());
             }
 
             String log = null;
